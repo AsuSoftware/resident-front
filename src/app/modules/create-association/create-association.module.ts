@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CreateAssociationComponent } from './../../common/classes/create-association/create-association.component';
 
 const routes: Routes = [
@@ -12,10 +13,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CreateAssociationComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
+  ],
+  declarations: [CreateAssociationComponent]
 })
 export class CreateAssociationModule { }

@@ -8,10 +8,6 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
-  },
-  {
-    path: 'create-association',
-    loadChildren: () => import('./../create-association/create-association.module').then(m => m.CreateAssociationModule),
   }
 ];
 

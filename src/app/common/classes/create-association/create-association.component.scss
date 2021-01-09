@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$white: #EEEEEE;
+$yellow: #FFD369;
+$blue-dark: #222831;
+
+.container-create-association {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-create-association .container-layout {
+  height: 100%;
+  width: calc(100% - 340px);
+}
+
+.container-create-association .top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 150px;
+}
+
+.container-create-association .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 150px;
+  transform: translate(0%, 50%);
+}
+
+.container-create-association .top .title {
+  color: $white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: $bold;
+  font-size: 20px;
+}
+
+.container-create-association .top .get-app-btn{
+  border: 0;
+  background: $blue-dark;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+}
+
+.container-create-association .bottom .form form {
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.container-create-association .bottom .form .box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.container-create-association .bottom .form form .box label {
+  margin-right: 10px;
+  color: $white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: $medium;
+  font-size: 16px;
+}
+
+.container-create-association .bottom .form form .box input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.container-create-association .bottom .form form p {
+  color: $white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: $regular;
+  font-size: 16px;
+}
+
+.container-create-association .bottom .form form p .add-apartment-btn {
+  border: 0;
+  padding: 5px 7px;
+  border-radius: 3px;
+  background-color: $blue-dark;
+  color: $white;
+  cursor: pointer;
+  margin: 20px 0;
+  margin-right: 10px;
+}
+
+.container-create-association .bottom .form form .submit-btn {
+  border: 0;
+  padding: 9px 13px;
+  border-radius: 12px;
+  background-color: $blue-dark;
+  color: $white;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: $medium;
+  font-size: 16px;
+}

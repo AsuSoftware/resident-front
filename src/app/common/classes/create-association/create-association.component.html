@@ -1,1 +1,31 @@
-<p>create-association works!</p>
+<div class="container-create-association">
+  <div class="container-layout">
+  <div class="top">
+    <p class="title">Creaza asociatie</p>
+    <button class="get-app-btn">Obtine aplicatia</button>
+  </div>
+  <div class="bottom">
+    <div class="image">
+      <img src="./assets/img/create-association-image.png" alt="image description">
+    </div>
+    <div class="form">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="box">
+          <label for="association-name">Numele associatiei:</label>
+          <input type="text" id="association-name" required placeholder="Nume" formControlName="associationName">
+        </div>
+        <div class="box" formArrayName="apartments" *ngFor="let apartment of apartments.controls; let i=index">
+          <label for="apartment-name">Apartamente:</label>
+          <input type="text" id="apartment-name" required placeholder="Nume apartament" [formControlName]="i">
+        </div>
+        <p>
+          <button class="add-apartment-btn" (click)="addApartment()" [disabled]="!profileForm.invalid"><i
+              class="fas fa-plus"></i></button>
+            Adauga mai multe
+        </p>
+        <button class="submit-btn" type="submit" value="Submit">Creaza</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
