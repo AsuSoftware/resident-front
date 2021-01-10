@@ -1,0 +1,46 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="container-association">
+    <div class="container-input">
+      <label for="association-name">Numele associatiei:</label>
+      <input type="text" id="association-name" placeholder="Nume" formControlName="associationName">
+    </div>
+    <span
+      *ngIf="profileForm.get('associationName') !== null && !profileForm.get('associationName').valid && profileForm.get('associationName').touched">Introdu
+      un nume valid</span>
+  </div>
+  <div class="container-apartments" formArrayName="apartments"
+    *ngFor="let apartment of apartments.controls; let i=index">
+    <div class="container-input">
+      <label for="apartment-name">Apartamente:</label>
+      <input type="text" id="apartment-name" placeholder="Nume apartament" [formControlName]="i">
+    </div>
+    <span class="apartment-message" *ngIf="apartment !== null && !apartment.valid && apartment.touched">Introdu un nume
+      de apartament</span>
+  </div>
+  <span>
+    <button class="add-apartment-btn" (click)="addApartment()"><i class="fas fa-plus"></i></button>Adauga mai multe
+  </span>
+  <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Creaza</button>
+</form>
+
+
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="container-association">
+    <label for="association-name">Numele associatiei:</label>
+    <input type="text" id="association-name" placeholder="Nume" formControlName="associationName">
+  </div>
+  <span *ngIf="profileForm.get('associationName') !== null && !profileForm.get('associationName').valid && profileForm.get('associationName').touched">Introdu un nume valid</span>
+  <div class="box" formArrayName="apartments" *ngFor="let apartment of apartments.controls; let i=index">
+    <div class="container-apartments-input">
+      <label for="apartment-name">Apartamente:</label>
+      <input type="text" id="apartment-name" placeholder="Nume apartament" [formControlName]="i">
+    </div>
+    <span class="apartment-message" *ngIf="apartment !== null && !apartment.valid && apartment.touched">Introdu un nume de apartament</span>
+  </div>
+  <p>
+    <button class="add-apartment-btn" (click)="addApartment()"><i
+        class="fas fa-plus"></i></button>
+      Adauga mai multe
+  </p>
+  <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Creaza</button>
+</form> -->

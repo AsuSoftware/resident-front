@@ -9,22 +9,7 @@
       <img src="./assets/img/create-association-image.png" alt="image description">
     </div>
     <div class="form">
-      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <div class="box">
-          <label for="association-name">Numele associatiei:</label>
-          <input type="text" id="association-name" required placeholder="Nume" formControlName="associationName">
-        </div>
-        <div class="box" formArrayName="apartments" *ngFor="let apartment of apartments.controls; let i=index">
-          <label for="apartment-name">Apartamente:</label>
-          <input type="text" id="apartment-name" required placeholder="Nume apartament" [formControlName]="i">
-        </div>
-        <p>
-          <button class="add-apartment-btn" (click)="addApartment()" [disabled]="!profileForm.invalid"><i
-              class="fas fa-plus"></i></button>
-            Adauga mai multe
-        </p>
-        <button class="submit-btn" type="submit" value="Submit">Creaza</button>
-      </form>
+     <app-association-form></app-association-form>
     </div>
   </div>
   </div>
