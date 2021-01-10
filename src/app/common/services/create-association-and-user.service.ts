@@ -41,6 +41,7 @@ export class CreateAssociationAndUserService {
     this._userData.phone = data.phone;
   }
 
+  // momentan le-am pus void, o sa le schimb dupa ce ai implementat acel endpoint
   public createAssociation(): void {
     this.http.post<String[]>(`${this.url}/api/v1/associations`,this._associationData);
   }

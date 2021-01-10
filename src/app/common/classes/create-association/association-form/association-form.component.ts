@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { CreateAssociationAndUserService } from './../../../services/create-association-and-user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 
@@ -8,7 +10,10 @@ import { FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class AssociationFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+     private createAssociationService: CreateAssociationAndUserService,
+     private router: Router
+     ) { }
 
   profileForm = this.fb.group({
     associationName: [null, Validators.required],
@@ -29,7 +34,11 @@ export class AssociationFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.profileForm.value);
+    if(this.profileForm.valid) {
+      this.createAssociationService.associationData = this.profileForm.value;
+      this.createAssociationService.createAssociation();
+      this.router.navigate(['/create-user']);
+    }
   }
 
 }

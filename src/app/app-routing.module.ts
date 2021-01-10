@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'create-association',
     loadChildren: () => import('./modules/create-association/create-association.module').then(m => m.CreateAssociationModule),
+  },
+  {
+    path: 'create-user',
+    loadChildren: () => import('./modules/create-user/create-user.module').then(m => m.CreateUserModule),
   }
 ];
 

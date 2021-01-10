@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$white: #eeeeee;
+$yellow: #ffd369;
+$blue-dark: #222831;
+
+.container-create-user {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-create-user .top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 150px;
+}
+
+.container-create-user .container-layout {
+  height: 100%;
+  width: calc(100% - 340px);
+}
+
+.container-create-user .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 150px;
+  transform: translate(0%, 50%);
+}
+
+
+@media only screen and (max-width: 1560px) {
+  .container-create-user .container-layout {
+    width: 100%;
+  }
+}
