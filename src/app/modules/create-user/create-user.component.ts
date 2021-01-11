@@ -20,7 +20,6 @@ export class CreateUserComponent implements OnInit {
     phone: [null, Validators.required]
   });
 
-  apartmentSelected = null;
 
   fakeListApartment = [
     {
@@ -106,7 +105,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   onApartmentSelected(id: String): void {
-    this.apartmentSelected = id;
+    this.profileForm.patchValue({apartmentId: id});
   }
 
   onSubmit(): void {

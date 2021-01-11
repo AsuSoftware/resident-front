@@ -1,6 +1,7 @@
+import { CreateAssociationService } from './services/create-association.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { CreateAssociationAndUserService } from './../../services/create-association-and-user.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class CreateAssociationComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
-    private createAssociationService: CreateAssociationAndUserService,
+    private createAssociationService: CreateAssociationService,
     private router: Router) { }
 
     profileForm = this.fb.group({

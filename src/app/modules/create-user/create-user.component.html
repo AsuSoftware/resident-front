@@ -10,7 +10,7 @@
           <h2 class="title">Selecteaza apartamentul tau</h2>
           <div class="apartment-options">
             <div *ngFor="let apartment of fakeListApartment"
-              [ngClass]="(apartmentSelected== apartment.id)?'apartment active':'apartment'"
+              [ngClass]="(profileForm.get('apartmentId').value == apartment.id)?'apartment active':'apartment'"
               (click)="onApartmentSelected(apartment.id)">
               <i class="fas fa-building"></i>
               <p>{{apartment.name}}</p>

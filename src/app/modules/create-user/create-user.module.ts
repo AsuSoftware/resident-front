@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreateUserComponent } from 'src/app/common/classes/create-user/create-user.component';
+import { CreateUserComponent } from 'src/app/modules/create-user/create-user.component';
 
 const routes: Routes = [
   {

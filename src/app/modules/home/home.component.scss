@@ -154,15 +154,16 @@ $blue-dark: #222831;
   .container-home .bottom .description h2 {
     font-size: 25px;
     width: 400px;
+    text-align: center;
   }
 
   .container-home .bottom .description p {
-    padding: 0 35px;
-    width: 400px;
+    padding: 0;
+    max-width: 400px;
   }
 
   .container-home .bottom .description .create-association-btn {
-    margin-left: 35px;
+
   }
 
   .container-home .bottom .image {

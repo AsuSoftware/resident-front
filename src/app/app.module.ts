@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './common/classes/nav-bar/nav-bar.component';
+import { NavBarComponent } from './common/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
