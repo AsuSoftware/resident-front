@@ -27,14 +27,6 @@ $blue-dark: #222831;
   padding: 20px 150px;
 }
 
-.container-create-association .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 150px;
-  transform: translate(0%, 50%);
-}
-
 .container-create-association .top .title {
   color: $white;
   font-family: "Quicksand", sans-serif;
@@ -49,6 +41,144 @@ $blue-dark: #222831;
   border-radius: 20px;
   color: $white;
   cursor: pointer;
+}
+
+.container-create-association .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 150px;
+  transform: translate(0%, 50%);
+}
+
+form {
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+form .container-association {
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+form .container-association .container-input input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #eeeeee;
+  color: $white;
+}
+
+form .container-association .container-input input.ng-invalid.ng-touched {
+  border-bottom: 1px solid red;
+}
+
+form .container-association span {
+  color: $white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $regular;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+form label {
+  margin-right: 10px;
+  color: $white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $medium;
+  font-size: 16px;
+}
+
+form .container-apartments {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+form .container-input-apartments {
+  overflow-y: auto;
+  width: 100%;
+  max-height: 100px;
+}
+
+form .container-apartments .container-input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+form .container-apartments .container-input input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #eeeeee;
+  color: $white;
+}
+
+form .container-apartments .container-input input.ng-invalid.ng-touched {
+  border-bottom: 1px solid red;
+}
+
+form .container-apartments .apartment-message {
+  color: $white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $regular;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+form span {
+  color: $white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $regular;
+  font-size: 16px;
+}
+
+form span .add-apartment-btn {
+  border: 0;
+  padding: 5px 7px;
+  border-radius: 3px;
+  background-color: $blue-dark;
+  color: $white;
+  cursor: pointer;
+  margin: 20px 0;
+  margin-right: 10px;
+}
+
+form .submit-btn {
+  border: 0;
+  padding: 9px 13px;
+  border-radius: 12px;
+  background-color: $blue-dark;
+  color: $white;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $medium;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @media only screen and (max-width: 1560px) {

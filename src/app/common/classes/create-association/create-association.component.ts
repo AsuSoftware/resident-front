@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { CreateAssociationAndUserService } from './../../services/create-association-and-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-association',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAssociationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+    private createAssociationService: CreateAssociationAndUserService,
+    private router: Router) { }
+
+    profileForm = this.fb.group({
+      associationName: [null, Validators.required],
+      apartments: this.fb.array([
+        this.fb.control(null, Validators.required)
+      ]),
+    });
+
 
   ngOnInit(): void {
+  }
+
+  addApartment(): void {
+    this.apartments.push(this.fb.control(null, Validators.required));
+  }
+
+  get apartments(): FormArray {
+    return this.profileForm.get('apartments') as FormArray;
+  }
+
+  onSubmit(): void {
+    if(this.profileForm.valid) {
+      this.createAssociationService.createAssociation(this.profileForm.value);
+      this.router.navigate(['/create-user/Admin']);
+    }
   }
 
 }

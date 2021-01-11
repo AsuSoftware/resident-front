@@ -1,16 +1,42 @@
 <div class="container-create-association">
   <div class="container-layout">
-  <div class="top">
-    <p class="title">Creaza asociatie</p>
-    <button class="get-app-btn">Obtine aplicatia</button>
-  </div>
-  <div class="bottom">
-    <div class="image">
-      <img src="./assets/img/create-association-image.png" alt="image description">
+    <div class="top">
+      <p class="title">Creaza asociatie</p>
+      <button class="get-app-btn">Obtine aplicatia</button>
     </div>
-    <div class="form">
-     <app-association-form></app-association-form>
+    <div class="bottom">
+      <div class="image">
+        <img src="./assets/img/create-association-image.png" alt="image description">
+      </div>
+      <div class="form">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="container-association">
+            <div class="container-input">
+              <label for="association-name">Numele associatiei:</label>
+              <input type="text" id="association-name" placeholder="Nume" formControlName="associationName">
+            </div>
+            <span
+              *ngIf="profileForm.get('associationName') !== null && !profileForm.get('associationName').valid && profileForm.get('associationName').touched">Introdu
+              un nume valid</span>
+          </div>
+          <div class="container-input-apartments">
+          <div class="container-apartments" formArrayName="apartments" *ngFor="let apartment of apartments.controls; let i=index">
+            <div class="container-input">
+              <label for="apartment-name">Apartamente:</label>
+              <input type="text" id="apartment-name" placeholder="Nume apartament" [formControlName]="i">
+            </div>
+            <span class="apartment-message" *ngIf="apartment !== null && !apartment.valid && apartment.touched">Introdu
+              un nume
+              de apartament</span>
+          </div>
+        </div>
+          <span>
+            <button class="add-apartment-btn" (click)="addApartment()"><i class="fas fa-plus"></i></button>Adauga mai
+            multe
+          </span>
+          <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Creaza</button>
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 </div>

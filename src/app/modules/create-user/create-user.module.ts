@@ -1,4 +1,3 @@
-import { UserFormComponent } from './../../common/classes/create-user/user-form/user-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,7 +16,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CreateUserComponent,
-    UserFormComponent
   ],
   imports: [
     CommonModule,

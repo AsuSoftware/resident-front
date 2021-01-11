@@ -70,6 +70,10 @@ $blue-dark: #222831;
   justify-content: space-between;
 }
 
+.container-home .bottom .description {
+  flex: 1;
+}
+
 .container-home .bottom .description h2 {
   color: $white;
   font-family: 'Quicksand', sans-serif;
@@ -98,6 +102,13 @@ $blue-dark: #222831;
   cursor: pointer;
 }
 
+.container-home .bottom .image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 480px) {}
 
 @media only screen and (max-width: 850px) {
   .container-home .top {
@@ -134,16 +145,20 @@ $blue-dark: #222831;
   .container-home .bottom .description {
     margin-right: 0;
     padding: 30px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .container-home .bottom .description h2 {
     font-size: 25px;
-    padding-left: 35px;
+    width: 400px;
   }
 
   .container-home .bottom .description p {
     padding: 0 35px;
-    width: auto;
+    width: 400px;
   }
 
   .container-home .bottom .description .create-association-btn {
@@ -154,10 +169,19 @@ $blue-dark: #222831;
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    width: 100%;
   }
 
   .container-home .bottom .image img {
-    width: 80%;
+    width: 400px;
+    max-width: 95%;
+    padding: 0 18px;
+  }
+}
+
+@media only screen and (max-width: 1240px) {
+  .container-home .bottom .image .img {
+    width: 400px;
   }
 }
 
