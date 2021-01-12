@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreateAssociation } from 'src/app/common/interfaces/createAssociation';
+import { CreateAssociation } from 'src/app/modules/create-association/classes/createAssociation';
+import { Observable } from 'rxjs';
+import { HttpService } from 'src/app/common/services/http.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CreateAssociationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: HttpService) { }
 
-  private url = 'localhost:8080';
-
-  public createAssociation(associationData: CreateAssociation): void {
-    this.http.post<String[]>(`${this.url}/api/v1/associations`,associationData);
+  public createAssociation(associationData: CreateAssociation): Observable<String> {
+    return this.http.post<String>(`${this.url}/api/v1/associations`,associationData);
   }
 }

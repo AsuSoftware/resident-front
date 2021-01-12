@@ -1,5 +1,5 @@
 import { CreateApartment } from './createApartment';
-export interface CreateAssociation {
+export class CreateAssociation {
   associationName: String;
   apartments: CreateApartment[];
 }

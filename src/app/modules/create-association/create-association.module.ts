@@ -1,3 +1,4 @@
+import { CreateAssociationService } from './services/create-association.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,6 +21,7 @@ const routes: Routes = [
   ],
   declarations: [
     CreateAssociationComponent,
-  ]
+  ],
+  providers: [CreateAssociationService]
 })
 export class CreateAssociationModule { }

@@ -12,11 +12,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/create-association/create-association.module').then(m => m.CreateAssociationModule),
   },
   {
-    path: 'create-user/Admin',
+    path: 'create-user/admin',
     loadChildren: () => import('./modules/create-user/create-user.module').then(m => m.CreateUserModule),
   },
   {
-    path: 'create-user/User',
+    path: 'create-user/user',
     loadChildren: () => import('./modules/create-user/create-user.module').then(m => m.CreateUserModule),
   }
 ];

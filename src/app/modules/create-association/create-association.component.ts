@@ -11,16 +11,18 @@ import { Router } from '@angular/router';
 })
 export class CreateAssociationComponent implements OnInit {
 
+  profileForm = this.fb.group({
+    associationName: [null, Validators.required],
+    apartments: this.fb.array([
+      this.fb.control(null, Validators.required)
+    ]),
+  });
+
+  errorMessage: String = null;
+
   constructor(private fb: FormBuilder,
     private createAssociationService: CreateAssociationService,
     private router: Router) { }
-
-    profileForm = this.fb.group({
-      associationName: [null, Validators.required],
-      apartments: this.fb.array([
-        this.fb.control(null, Validators.required)
-      ]),
-    });
 
 
   ngOnInit(): void {
@@ -35,9 +37,12 @@ export class CreateAssociationComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if(this.profileForm.valid) {
-      this.createAssociationService.createAssociation(this.profileForm.value);
-      this.router.navigate(['/create-user/Admin']);
+    if (this.profileForm.valid) {
+      this.createAssociationService.createAssociation(this.profileForm.value).subscribe(
+        (id) => {
+          this.router.navigate(['/create-user/admin']);
+        },
+        (error) => this.errorMessage = error);
     }
   }
 

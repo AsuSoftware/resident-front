@@ -9,8 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateUserComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) { }
-
   profileForm = this.fb.group({
     apartmentId: [null, Validators.required],
     firstName: [null, Validators.required],
@@ -41,67 +39,13 @@ export class CreateUserComponent implements OnInit {
     {
       id: 5,
       name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    }
-    ,{
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    }
-    ,{
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
-    }
-    ,{
-      id: 5,
-      name: "Resort"
-    },
-    {
-      id: 5,
-      name: "Resort"
     }
   ];
 
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    this.profileForm.patchValue({userType: this.route.parent.snapshot.url[1].path});
+    this.profileForm.patchValue({userType: this.route.parent.snapshot.url[1].path.toUpperCase()});
   }
 
   onApartmentSelected(id: String): void {

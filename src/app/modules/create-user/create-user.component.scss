@@ -14,151 +14,150 @@ $blue-dark: #222831;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
-}
 
-.container-create-user .top {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 150px;
-}
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 150px;
+  }
 
-.container-create-user .top .title {
-  color: $white;
-  font-family: "Quicksand", sans-serif;
-  font-weight: $bold;
-  font-size: 20px;
-}
+  .top .title {
+    color: $white;
+    font-family: "Quicksand", sans-serif;
+    font-weight: $bold;
+    font-size: 20px;
+  }
 
-.container-create-user .top .get-app-btn {
-  border: 0;
-  background: $blue-dark;
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: $white;
-  cursor: pointer;
-}
+  .top .get-app-btn {
+    border: 0;
+    background: $blue-dark;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: $white;
+    cursor: pointer;
+  }
 
-.container-create-user .container-layout {
-  height: 100%;
-  width: calc(100% - 340px);
-}
+  .container-layout {
+    height: 100%;
+    width: calc(100% - 340px);
+  }
 
-.container-create-user .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 150px;
-  transform: translate(0%, 50%);
-}
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 150px;
+    transform: translate(0%, 50%);
+  }
 
-form {
-  flex-direction: column;
-  align-items: center;
- // height: 400px;
-  display: flex;
-  justify-content: center;
-  overflow-y: auto;
-}
+  form {
+    flex-direction: column;
+    align-items: center;
+    // height: 400px;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
 
-form span {
-  color: $white;
-  font-family: "Quicksand", sans-serif;
-  font-weight: $regular;
-  font-size: 16px;
-  width: 65%;
-}
+    span {
+      color: $white;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $regular;
+      font-size: 16px;
+      width: 65%;
+    }
 
-form .title {
-  font-family: "Quicksand", sans-serif;
-  font-weight: $bold;
-  font-size: 16px;
-  color: $white;
-}
+    .title {
+      font-family: "Quicksand", sans-serif;
+      font-weight: $bold;
+      font-size: 16px;
+      color: $white;
+    }
 
-form .apartment-options {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 400px;
-  overflow-y: auto;
-  margin: 20px 0;
-  flex-wrap: wrap;
-  overflow-x: hidden;
-  height: 100px;
-}
+    .apartment-options {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 400px;
+      overflow-y: auto;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      height: 100px;
 
-form .apartment-options .apartment {
-  display: flex;
-  align-items: center;
-  background: $blue-dark;
-  border: 0;
-  padding: 7px 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  margin: 10px;
-}
+      .apartment {
+        display: flex;
+        align-items: center;
+        background: $blue-dark;
+        border: 0;
+        padding: 7px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin: 10px;
+      }
 
-form .apartment-options .apartment.active {
-  border: 1px solid $yellow;
-}
+      .apartment.active {
+        border: 1px solid $yellow;
+      }
 
-form .apartment-options .apartment i {
-  margin-right: 5px;
-  color: $white;
-}
+      i {
+        margin-right: 5px;
+        color: $white;
+      }
 
-form .apartment-options .apartment p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: $regular;
-  font-size: 16px;
-  color: $white;
-}
+      p {
+        font-family: "Quicksand", sans-serif;
+        font-weight: $regular;
+        font-size: 16px;
+        color: $white;
+      }
+    }
 
-form .container-input {
-  width: 65%;
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
+    .container-input {
+      width: 65%;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
 
-form .container-input label {
-  font-family: "Quicksand", sans-serif;
-  font-weight: $regular;
-  font-size: 16px;
-  color: $white;
-}
+      label {
+        font-family: "Quicksand", sans-serif;
+        font-weight: $regular;
+        font-size: 16px;
+        color: $white;
+      }
 
-form .container-input input {
-  border: 0;
-  background: transparent;
-  border-bottom: 1px solid #eeeeee;
-  color: $white;
-}
+      input {
+        border: 0;
+        background: transparent;
+        border-bottom: 1px solid #eeeeee;
+        color: $white;
+      }
 
-form .container-input input.ng-invalid.ng-touched {
-  border-bottom: 1px solid red;
-}
+      input.ng-invalid.ng-touched {
+        border-bottom: 1px solid red;
+      }
 
-form .container-input p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: $regular;
-  font-size: 16px;
-  color: $white;
-}
+      p {
+        font-family: "Quicksand", sans-serif;
+        font-weight: $regular;
+        font-size: 16px;
+        color: $white;
+      }
+    }
 
-form .submit-btn {
-  border: 0;
-  padding: 9px 13px;
-  border-radius: 12px;
-  background-color: $blue-dark;
-  color: $white;
-  cursor: pointer;
-  font-family: "Quicksand", sans-serif;
-  font-weight: $medium;
-  font-size: 16px;
-  margin-top: 40px;
+    .submit-btn {
+      border: 0;
+      padding: 9px 13px;
+      border-radius: 12px;
+      background-color: $blue-dark;
+      color: $white;
+      cursor: pointer;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $medium;
+      font-size: 16px;
+      margin-top: 40px;
+    }
+  }
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -179,9 +178,10 @@ form .submit-btn {
   background: #555;
 }
 
-
 @media only screen and (max-width: 1560px) {
-  .container-create-user .container-layout {
-    width: 100%;
+  .container-create-user {
+    .container-layout {
+      width: 100%;
+    }
   }
 }

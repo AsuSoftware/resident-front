@@ -1,4 +1,4 @@
-export interface CreateUser {
+export class CreateUser {
   apartmentId: string;
   firstName: String;
   lastName: String;

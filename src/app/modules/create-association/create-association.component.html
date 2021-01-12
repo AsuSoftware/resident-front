@@ -35,6 +35,7 @@
             multe
           </span>
           <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Creaza</button>
+          <span *ngIf="errorMessage == null">{{errorMessage}}</span>
         </form>
       </div>
     </div>
