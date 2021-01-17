@@ -40,7 +40,7 @@ export class CreateAssociationComponent implements OnInit {
     if (this.profileForm.valid) {
       this.createAssociationService.createAssociation(this.profileForm.value).subscribe(
         (id) => {
-          this.router.navigate(['/create-user/admin']);
+          this.router.navigate(['/create-user/admin/' + id]);
         },
         (error) => this.errorMessage = error);
     }

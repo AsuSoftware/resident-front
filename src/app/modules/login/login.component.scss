@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$white: #eeeeee;
+$yellow: #ffd369;
+$blue-dark: #222831;
+
+.container-login {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+
+  .container-layout {
+    height: 100%;
+    width: calc(100% - 340px);
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 150px;
+
+      .title {
+        color: $white;
+        font-family: "Quicksand", sans-serif;
+        font-weight: $bold;
+        font-size: 20px;
+      }
+
+      .get-app-btn {
+        border: 0;
+        background: $blue-dark;
+        padding: 10px 20px;
+        border-radius: 20px;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 150px;
+      transform: translate(0%, 35%);
+
+      form {
+        flex-direction: column;
+        align-items: center;
+        // height: 400px;
+        display: flex;
+        justify-content: center;
+        width: 250px;
+
+        span {
+          color: $white;
+          font-family: "Quicksand", sans-serif;
+          font-weight: $regular;
+          font-size: 16px;
+          width: 100%;
+          margin: 0 0 18px 0;
+        }
+
+        .container-input {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin: 18px 0;
+
+          label {
+            font-family: "Quicksand", sans-serif;
+            font-weight: $regular;
+            font-size: 16px;
+            color: $white;
+          }
+
+          input {
+            border: 0;
+            background: transparent;
+            border-bottom: 1px solid #eeeeee;
+            color: $white;
+          }
+
+          input.ng-invalid.ng-touched {
+            border-bottom: 1px solid red;
+          }
+        }
+
+        .container-remember-me {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          input {
+            margin-right: 8px;
+          }
+
+          label {
+            font-family: "Quicksand", sans-serif;
+            font-weight: $regular;
+            font-size: 16px;
+            color: $white;
+          }
+        }
+
+        .container-btn {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 25px;
+
+          .submit-btn {
+            border: 0;
+            padding: 9px 25px;
+            border-radius: 12px;
+            background-color: $blue-dark;
+            color: $white;
+            cursor: pointer;
+            font-family: "Quicksand", sans-serif;
+            font-weight: $medium;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1560px) {
+  .container-login {
+    .container-layout {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .container-login {
+    .container-layout {
+      .image {
+        width: 300px;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 899px) and (min-width: 400px) {
+  .container-login {
+    .container-layout {
+      .bottom {
+        padding: 0;
+        padding-top: 30px;
+        flex-direction: column-reverse;
+        transform: translate(0, 0);
+
+        .container-form {
+          margin: 50px 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .image {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          img {
+            width: 350px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  .container-login {
+    .container-layout {
+      .bottom {
+        padding: 0;
+        padding-top: 30px;
+        flex-direction: column-reverse;
+        transform: translate(0, 0);
+
+        .container-form {
+          margin: 50px 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        .image {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          img {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}

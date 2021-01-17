@@ -19,22 +19,22 @@ $blue-dark: #222831;
     display: flex;
     justify-content: space-between;
     padding: 20px 150px;
-  }
 
-  .top .title {
-    color: $white;
-    font-family: "Quicksand", sans-serif;
-    font-weight: $bold;
-    font-size: 20px;
-  }
+    .title {
+      color: $white;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $bold;
+      font-size: 20px;
+    }
 
-  .top .get-app-btn {
-    border: 0;
-    background: $blue-dark;
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: $white;
-    cursor: pointer;
+    .get-app-btn {
+      border: 0;
+      background: $blue-dark;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: $white;
+      cursor: pointer;
+    }
   }
 
   .container-layout {
@@ -47,7 +47,7 @@ $blue-dark: #222831;
     align-items: center;
     justify-content: space-between;
     padding: 20px 150px;
-    transform: translate(0%, 50%);
+    transform: translate(0%, 35%);
   }
 
   form {

@@ -8,12 +8,18 @@
       <div class="container-form">
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <h2 class="title">Selecteaza apartamentul tau</h2>
-          <div class="apartment-options">
-            <div *ngFor="let apartment of fakeListApartment"
+          <div class="apartment-options" *ngIf="profileForm.get('userType').value === 'ADMIN'">
+            <div *ngFor="let apartment of apartments"
               [ngClass]="(profileForm.get('apartmentId').value == apartment.id)?'apartment active':'apartment'"
               (click)="onApartmentSelected(apartment.id)">
               <i class="fas fa-building"></i>
               <p>{{apartment.name}}</p>
+            </div>
+          </div>
+          <div class="apartment-options" *ngIf="profileForm.get('userType').value === 'USER'">
+            <div class="apartment active">
+              <i class="fas fa-building"></i>
+              <p>{{apartments[0].name}}</p>
             </div>
           </div>
           <div class="container-input">
@@ -21,22 +27,29 @@
             <input type="text" id="firstName" placeholder="Nume" formControlName="firstName">
           </div>
           <span
-            *ngIf="profileForm.get('firstName') !== null && !profileForm.get('firstName').valid && profileForm.get('firstName').touched">Introdu
+            *ngIf="profileForm.get('firstName') && !profileForm.get('firstName').valid && profileForm.get('firstName').touched">Introdu
             un nume valid</span>
           <div class="container-input">
             <label for="lastName">Preunume:</label>
             <input type="text" id="lastName" placeholder="Prenume" formControlName="lastName">
           </div>
           <span
-            *ngIf="profileForm.get('lastName') !== null && !profileForm.get('lastName').valid && profileForm.get('lastName').touched">Introdu
+            *ngIf="profileForm.get('lastName') && !profileForm.get('lastName').valid && profileForm.get('lastName').touched">Introdu
             un prenume valid</span>
           <div class="container-input">
             <label for="email">Email:</label>
             <input type="email" id="email" placeholder="Email" formControlName="email">
           </div>
           <span
-            *ngIf="profileForm.get('email') !== null && !profileForm.get('email').valid && profileForm.get('email').touched">Introdu
+            *ngIf="profileForm.get('email') && !profileForm.get('email').valid && profileForm.get('email').touched">Introdu
             un email valid</span>
+          <div class="container-input">
+            <label for="password">Parola:</label>
+            <input type="password" id="password" placeholder="Parola" formControlName="password">
+          </div>
+          <span
+            *ngIf="profileForm.get('password') && !profileForm.get('password').valid && profileForm.get('password').touched">Introdu
+            o parola</span>
           <div class="container-input">
             <label for="email">Tipul de user:</label>
             <p>{{profileForm.get('userType').value}}</p>
@@ -46,8 +59,9 @@
             <input type="number" id="phone" placeholder="Phone" formControlName="phone">
           </div>
           <span
-            *ngIf="profileForm.get('phone') !== null && !profileForm.get('phone').valid && profileForm.get('phone').touched">Introdu
+            *ngIf="profileForm.get('phone') && !profileForm.get('phone').valid && profileForm.get('phone').touched">Introdu
             un numar valid</span>
+          <span *ngIf="errorMessage">{{errorMessage}}</span>
           <button type="submit" value="Submit" class="submit-btn">Creaza</button>
         </form>
       </div>
