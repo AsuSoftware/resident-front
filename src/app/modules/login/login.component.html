@@ -21,10 +21,6 @@
           <span
             *ngIf="formProfile.get('password') && !formProfile.get('password').valid && formProfile.get('password').touched">Introdu
             o parola</span>
-            <div class="container-remember-me">
-              <input type="checkbox" id="remember" name="remember-me" value="remember" (click)="onRememberMe()">
-              <label for="remember">Tine-ma minte</label>
-            </div>
             <div class="container-btn">
               <button class="submit-btn" type="submit" value="Submit" [disabled]="!formProfile.valid">Intra</button>
               <span *ngIf="messageError == null">{{messageError}}</span>

@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   });
 
   private errorMessage: String = null;
-  rememberMe = false;
 
   public constructor(private fb: FormBuilder,
                      private router: Router,
@@ -27,10 +26,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-  }
-
-  public onRememberMe() {
-    this.rememberMe = !this.rememberMe;
   }
 
   public onSubmit(): void {
