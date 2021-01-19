@@ -6,27 +6,28 @@
     </div>
     <div class="bottom">
       <div class="container-form">
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="formProfile" (ngSubmit)="onSubmit()">
           <div class="container-input">
             <label for="email">Email:</label>
             <input type="email" id="email" placeholder="Email" formControlName="email">
           </div>
           <span
-            *ngIf="profileForm.get('email') && !profileForm.get('email').valid && profileForm.get('email').touched">Introdu
+            *ngIf="formProfile.get('email') && !formProfile.get('email').valid && formProfile.get('email').touched">Introdu
             un email valid</span>
           <div class="container-input">
             <label for="password">Parola:</label>
             <input type="password" id="password" placeholder="Parola" formControlName="password">
           </div>
           <span
-            *ngIf="profileForm.get('password') && !profileForm.get('password').valid && profileForm.get('password').touched">Introdu
+            *ngIf="formProfile.get('password') && !formProfile.get('password').valid && formProfile.get('password').touched">Introdu
             o parola</span>
             <div class="container-remember-me">
               <input type="checkbox" id="remember" name="remember-me" value="remember" (click)="onRememberMe()">
               <label for="remember">Tine-ma minte</label>
             </div>
             <div class="container-btn">
-              <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Intra</button>
+              <button class="submit-btn" type="submit" value="Submit" [disabled]="!formProfile.valid">Intra</button>
+              <span *ngIf="messageError == null">{{messageError}}</span>
             </div>
         </form>
       </div>

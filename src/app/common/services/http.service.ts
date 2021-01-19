@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
-  constructor() { }
+  public constructor() { }
 
   public readonly url = 'localhost:8080';
 }

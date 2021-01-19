@@ -1,6 +1,7 @@
+import { ApartmentService } from './../../common/services/apartment.service';
 import { Apartment } from './../../common/interfaces/apartment';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateUserService } from './services/create-user.service';
 
@@ -11,7 +12,7 @@ import { CreateUserService } from './services/create-user.service';
 })
 export class CreateUserComponent implements OnInit {
 
-  profileForm = this.fb.group({
+ private profileForm = this.fb.group({
     apartmentId: [null, Validators.required],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
@@ -21,36 +22,57 @@ export class CreateUserComponent implements OnInit {
     phone: [null, Validators.required]
   });
 
-  errorMessage: String = null;
+ private errorMessage: String = null;
 
-  // TODO: 2 chestii principale:
-  // 1. cand creezi user trebuyie sa avem associationId ca si query param sus in url, ca sa luam apartamente pentru acea asociatie(ADMIN)
-  // 2. Iar la un USER simplu nu va selecta niciun apartament ca ADMINUL deja i-a dat invitatie pt un apartament anume, si o sa aiba apartmentId in url
+  private apartments: Apartment[] = [];
 
-  apartments: Apartment[] = [];
+  public constructor(private fb: FormBuilder,
+                     private route: ActivatedRoute,
+                     private createUserService: CreateUserService,
+                     private apartmentService: ApartmentService,
+                     private router: Router
+                     ) { }
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private createUserService: CreateUserService, private router: Router) { }
-
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.profileForm.patchValue({ userType: this.route.parent.snapshot.url[1].path.toUpperCase() });
     if (this.profileForm.get('userType').value == 'ADMIN') {
-      const associationId = this.route.parent.snapshot.url[2].path;
-      this.createUserService.findAllByAssociation(associationId).subscribe((data) => this.apartments = data, (err) => this.errorMessage = err);
+      let associationId = null;
+      this.route.queryParams.subscribe((params) => associationId = params['associationId']);
+      this.apartmentService.findAllByAssociation(associationId)
+        .subscribe((data) => this.apartments = data,
+          (err) => this.errorMessage = err);
     } else if (this.profileForm.get('userType').value == 'USER') {
-      const apartmentId = this.route.parent.snapshot.url[2].path;
-      this.createUserService.findApartmentById(apartmentId).subscribe((data) => {
-        this.apartments.push(data);
-        this.profileForm.patchValue({apartmentId: data});
-      }, (err) => this.errorMessage = err);
+      let apartmentId = null;
+      this.route.queryParams.subscribe((params) => apartmentId = params['apartmentId']);
+      this.apartmentService.findApartmentById(apartmentId).subscribe(
+        (data) => {
+          this.apartments.push(data);
+          this.profileForm.patchValue({ apartmentId: data.id });
+        }, (err) => this.errorMessage = err);
     }
   }
 
-  onApartmentSelected(id: String): void {
+  public onApartmentSelected(id: String): void {
     this.profileForm.patchValue({ apartmentId: id });
   }
 
-  onSubmit(): void {
-    this.createUserService.createUser(this.profileForm.value).subscribe(() => this.router.navigate(['/login']), (err) => this.errorMessage = err);
+  public onSubmit(): void {
+    this.createUserService.createUser(this.profileForm.value)
+      .subscribe(
+        () => this.router.navigate(['/login']),
+        (err) => this.errorMessage = err);
+  }
+
+  public get messageError(): String {
+    return this.messageError;
+  }
+
+  public get apartmentsList(): Apartment[] {
+    return this.apartments;
+  }
+
+  public get formProfile(): FormGroup {
+    return this.profileForm.value;
   }
 
 }

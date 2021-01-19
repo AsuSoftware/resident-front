@@ -9,14 +9,14 @@
         <img src="./assets/img/create-association-image.png" alt="image description">
       </div>
       <div class="form">
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="formProfile" (ngSubmit)="onSubmit()">
           <div class="container-association">
             <div class="container-input">
               <label for="association-name">Numele associatiei:</label>
               <input type="text" id="association-name" placeholder="Nume" formControlName="associationName">
             </div>
             <span
-              *ngIf="profileForm.get('associationName') !== null && !profileForm.get('associationName').valid && profileForm.get('associationName').touched">Introdu
+              *ngIf="formProfile.get('associationName') !== null && !formProfile.get('associationName').valid && formProfile.get('associationName').touched">Introdu
               un nume valid</span>
           </div>
           <div class="container-input-apartments">
@@ -34,8 +34,8 @@
             <button class="add-apartment-btn" (click)="addApartment()"><i class="fas fa-plus"></i></button>Adauga mai
             multe
           </span>
-          <button class="submit-btn" type="submit" value="Submit" [disabled]="!profileForm.valid">Creaza</button>
-          <span *ngIf="errorMessage == null">{{errorMessage}}</span>
+          <button class="submit-btn" type="submit" value="Submit" [disabled]="!formProfile.valid">Creaza</button>
+          <span *ngIf="messageError == null">{{messageError}}</span>
         </form>
       </div>
     </div>

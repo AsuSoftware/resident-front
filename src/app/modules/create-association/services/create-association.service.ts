@@ -7,9 +7,9 @@ import { HttpService } from 'src/app/common/services/http.service';
 @Injectable()
 export class CreateAssociationService {
 
-  constructor(private http: HttpClient, private url: HttpService) { }
+  public constructor(private http: HttpClient, private url: HttpService) { }
 
-  public createAssociation(associationData: CreateAssociation): Observable<String> {
-    return this.http.post<String>(`${this.url}/api/v1/associations`,associationData);
+  public createAssociation(associationData: CreateAssociation): Observable<{id: String}> {
+    return this.http.post<{id: String}>(`${this.url}/api/v1/associations`, associationData);
   }
 }

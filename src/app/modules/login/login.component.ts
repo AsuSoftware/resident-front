@@ -1,7 +1,9 @@
+import { LocalStorageService } from './../../common/services/local-storage.service';
 import { LoginService } from './services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { profile } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -10,26 +12,41 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  profileForm = this.fb.group({
+  private profileForm = this.fb.group({
     email: [null, [Validators.required, Validators.email]],
     password: [null, Validators.required]
   });
 
-  errorMessage: String = null;
+  private errorMessage: String = null;
   rememberMe = false;
 
-  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) { }
+  public constructor(private fb: FormBuilder,
+                     private router: Router,
+                     private loginService: LoginService,
+                     private localStorageService: LocalStorageService
+  ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  onRememberMe() {
+  public onRememberMe() {
     this.rememberMe = !this.rememberMe;
   }
 
-  // TODO: need to know how to implement remember me. If we need to save email and password or token..
-  onSubmit(): void {
-    this.loginService.login(this.profileForm.value).subscribe(() => this.router.navigate(['/home']), (err) => this.errorMessage = err);
+  public onSubmit(): void {
+    this.loginService.login(this.profileForm.value)
+      .subscribe((token) => {
+        this.localStorageService.setToken(token);
+        this.router.navigate(['/home']);
+      }, (err) => this.errorMessage = err);
+  }
+
+  public get messageError(): String {
+    return this.errorMessage;
+  }
+
+  public get formProfile(): FormGroup {
+    return this.profileForm.value;
   }
 
 }

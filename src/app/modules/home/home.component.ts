@@ -34,19 +34,23 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public constructor(private router: Router) { }
 
-  isOpen = false;
+  private isOpen = false;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  onCreateAssociation() {
+  public onCreateAssociation() {
     this.router.navigate(['/create-association']);
   }
 
-  navState(): void {
+  public changeNavState(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  get isNavOpen(): Boolean {
+    return this.isOpen;
   }
 
 }

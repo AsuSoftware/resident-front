@@ -1,6 +1,6 @@
 import { CreateAssociationService } from './services/create-association.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 
 import { Router } from '@angular/router';
 
@@ -11,39 +11,47 @@ import { Router } from '@angular/router';
 })
 export class CreateAssociationComponent implements OnInit {
 
-  profileForm = this.fb.group({
+  private profileForm = this.fb.group({
     associationName: [null, Validators.required],
     apartments: this.fb.array([
       this.fb.control(null, Validators.required)
     ]),
   });
 
-  errorMessage: String = null;
+  private errorMessage: String = null;
 
-  constructor(private fb: FormBuilder,
-    private createAssociationService: CreateAssociationService,
-    private router: Router) { }
+  public constructor(private fb: FormBuilder,
+                     private createAssociationService: CreateAssociationService,
+                     private router: Router) { }
 
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  addApartment(): void {
+  public addApartment(): void {
     this.apartments.push(this.fb.control(null, Validators.required));
   }
 
-  get apartments(): FormArray {
+  public get apartments(): FormArray {
     return this.profileForm.get('apartments') as FormArray;
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.profileForm.valid) {
       this.createAssociationService.createAssociation(this.profileForm.value).subscribe(
-        (id) => {
-          this.router.navigate(['/create-user/admin/' + id]);
+        (data) => {
+          this.router.navigate(['/create-user/admin'], { queryParams: { associationId: data.id } });
         },
         (error) => this.errorMessage = error);
     }
+  }
+
+  public get messageError(): String {
+    return this.errorMessage;
+  }
+
+  public get formProfile(): FormGroup {
+    return this.profileForm.value;
   }
 
 }

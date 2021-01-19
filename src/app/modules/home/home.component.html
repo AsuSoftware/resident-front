@@ -1,8 +1,8 @@
-<div class="container-home" [@openClose]="isOpen ? 'open' : 'close'">
+<div class="container-home" [@openClose]="isNavOpen ? 'open' : 'close'">
   <div class="container-layout">
   <div class="top">
     <div class="left">
-      <i class="fas fa-bars menu-btn" (click)="navState()"></i>
+      <i class="fas fa-bars menu-btn" (click)="changeNavState()"></i>
       <div class="social">
         <i class="fab fa-facebook"></i>
         <i class="fab fa-instagram"></i>

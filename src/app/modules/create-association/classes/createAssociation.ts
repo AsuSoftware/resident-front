@@ -1,5 +1,5 @@
 import { CreateApartment } from './createApartment';
 export class CreateAssociation {
-  associationName: String;
+  name: String;
   apartments: CreateApartment[];
 }
