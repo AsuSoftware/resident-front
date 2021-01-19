@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$background: #222831;
+$white: #eeeeee;
+
+.container-nav {
+  width: 340px;
+  background: $background;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 3;
+  transition: linear 0.5s;
+
+  .logo {
+    margin-top: 45px;
+  }
+
+  .links {
+    a {
+      text-decoration: none;
+      color: $white;
+      font-size: 16px;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $regular;
+
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  footer {
+    margin-bottom: 25px;
+    color: $white;
+    font-family: "Quicksand", sans-serif;
+    font-weight: $regular;
+  }
+}
+
+@media only screen and (max-width: 1560px) {
+  .container-nav {
+    display: none;
+  }
+}

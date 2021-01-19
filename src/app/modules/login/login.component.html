@@ -1,0 +1,35 @@
+<div class="container-login">
+  <div class="container-layout">
+    <div class="top">
+      <p class="title">Intra</p>
+      <button class="get-app-btn">Obtine aplicatia</button>
+    </div>
+    <div class="bottom">
+      <div class="container-form">
+        <form [formGroup]="formProfile" (ngSubmit)="onSubmit()">
+          <div class="container-input">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" formControlName="email">
+          </div>
+          <span
+            *ngIf="formProfile.get('email') && !formProfile.get('email').valid && formProfile.get('email').touched">Introdu
+            un email valid</span>
+          <div class="container-input">
+            <label for="password">Parola:</label>
+            <input type="password" id="password" placeholder="Parola" formControlName="password">
+          </div>
+          <span
+            *ngIf="formProfile.get('password') && !formProfile.get('password').valid && formProfile.get('password').touched">Introdu
+            o parola</span>
+            <div class="container-btn">
+              <button class="submit-btn" type="submit" value="Submit" [disabled]="!formProfile.valid">Intra</button>
+              <span *ngIf="messageError == null">{{messageError}}</span>
+            </div>
+        </form>
+      </div>
+      <div class="image">
+        <img src="./assets/img/login-image.png" alt="image description">
+      </div>
+    </div>
+  </div>
+</div>

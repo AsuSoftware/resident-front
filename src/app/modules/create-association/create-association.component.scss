@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+$white: #eeeeee;
+$yellow: #ffd369;
+$blue-dark: #222831;
+
+.container-create-association {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+
+  .container-layout {
+    height: 100%;
+    width: calc(100% - 340px);
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 150px;
+
+    .title {
+      color: $white;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $bold;
+      font-size: 20px;
+    }
+
+    .get-app-btn {
+      border: 0;
+      background: $blue-dark;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 150px;
+    transform: translate(0%, 50%);
+  }
+
+  form {
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+
+    .container-association {
+      width: 100%;
+      justify-content: space-between;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+
+      .container-input {
+        input {
+          border: 0;
+          background: transparent;
+          border-bottom: 1px solid #eeeeee;
+          color: $white;
+        }
+
+        input.ng-invalid.ng-touched {
+          border-bottom: 1px solid red;
+        }
+      }
+      span {
+        color: $white;
+        font-family: "Quicksand", sans-serif;
+        font-weight: $regular;
+        font-size: 16px;
+        margin-top: 15px;
+      }
+
+      label {
+        margin-right: 10px;
+        color: $white;
+        font-family: "Quicksand", sans-serif;
+        font-weight: $medium;
+        font-size: 16px;
+      }
+    }
+
+    .container-input-apartments {
+      overflow-y: auto;
+      width: 100%;
+      max-height: 100px;
+
+      .container-apartments {
+        width: 100%;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+
+        .container-input {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          input {
+            border: 0;
+            background: transparent;
+            border-bottom: 1px solid #eeeeee;
+            color: $white;
+          }
+
+          input.ng-invalid.ng-touched {
+            border-bottom: 1px solid red;
+          }
+        }
+        .apartment-message {
+          color: $white;
+          font-family: "Quicksand", sans-serif;
+          font-weight: $regular;
+          font-size: 16px;
+          margin-top: 15px;
+        }
+        label {
+          margin-right: 10px;
+          color: $white;
+          font-family: "Quicksand", sans-serif;
+          font-weight: $medium;
+          font-size: 16px;
+        }
+      }
+    }
+
+    span {
+      color: $white;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $regular;
+      font-size: 16px;
+    }
+
+    span .add-apartment-btn {
+      border: 0;
+      padding: 5px 7px;
+      border-radius: 3px;
+      background-color: $blue-dark;
+      color: $white;
+      cursor: pointer;
+      margin: 20px 0;
+      margin-right: 10px;
+    }
+
+    .submit-btn {
+      border: 0;
+      padding: 9px 13px;
+      border-radius: 12px;
+      background-color: $blue-dark;
+      color: $white;
+      cursor: pointer;
+      font-family: "Quicksand", sans-serif;
+      font-weight: $medium;
+      font-size: 16px;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 1560px) {
+  .container-create-association {
+    .container-layout {
+      width: 100%;
+    }
+  }
+}
