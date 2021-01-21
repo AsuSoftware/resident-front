@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  private isUserLogged = false;
+  private userType: string = null;
 
-  ngOnInit(): void {
+  public constructor(private localStorageService: LocalStorageService) { }
+
+  public ngOnInit(): void {
+    const token = this.localStorageService.getToken();
+    if (token !== undefined) {
+      this.isUserLogged = true;
+    }
   }
 
+  public get userIsLogged(): boolean {
+    return this.isUserLogged;
+  }
+
+  public get typeOfUser(): string {
+    return this.userType;
+  }
 }
