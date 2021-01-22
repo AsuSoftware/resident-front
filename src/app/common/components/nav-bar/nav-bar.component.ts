@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   private isUserLogged = false;
-  private userType: string = null;
+  private userType: string = 'ADMIN';
 
   public constructor(private localStorageService: LocalStorageService) { }
 
