@@ -15,143 +15,64 @@
     <div class="bottom">
       <div class="left">
         <div class="left-top">
-         <div class="category">
-           <div class="box">
-             <p class="category-name active">All</p>
-             <p class="number">5</p>
-           </div>
-           <div class="box">
-            <p class="category-name">Gas</p>
-            <p class="number">1</p>
+          <div class="category">
+            <div class="box">
+              <p class="category-name active" (click)="filterData('All')">All</p>
+              <p class="number">{{data.length}}</p>
+            </div>
+            <div class="box">
+              <p class="category-name" (click)="filterData('Gaz')">Gaz</p>
+              <p class="number">{{filterData('Gaz').length}}</p>
+            </div>
+            <div class="box">
+              <p class="category-name" (click)="filterData('Curent')">Curent</p>
+              <p class="number">{{filterData('Curent').length}}</p>
+            </div>
+            <div class="box">
+              <p class="category-name" (click)="filterData('Apa')">Apa</p>
+              <p class="number">{{filterData('Apa').length}}</p>
+            </div>
           </div>
-          <div class="box">
-            <p class="category-name">Curent</p>
-            <p class="number">1</p>
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Cauta..">
           </div>
-          <div class="box">
-            <p class="category-name">Apa</p>
-            <p class="number">3</p>
-          </div>
-         </div>
-         <div class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Cauta..">
-         </div>
         </div>
         <div class="left-bottom">
-          <div class="box">
+          <div class="box" *ngFor="let provider of filterData('All')">
             <div class="logo">
-              <img src="./assets/img/acea-logo.png" alt="logo provider de servicii">
+              <img [src]="provider.image" alt="logo provider de servicii">
             </div>
-            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-ellipsis-v" (click)="editPrice(provider.id)"></i>
             <div class="container-info">
-              <p class="title">Acea</p>
+              <p class="title">{{provider.title}}</p>
               <div class="info">
                 <p class="key">Serviciu</p>
-                <p class="value">Apa</p>
+                <p class="value">{{provider.serviciu}}</p>
               </div>
               <div class="info">
                 <p class="key">Pret</p>
-                <p class="value">13 lei/m³</p>
+                <p class="value">{{provider.pret}} lei/{{getUnitOfMisurement(provider.serviciu)}}</p>
               </div>
               <div class="info">
                 <p class="key">Data</p>
-                <p class="value">12/08/20</p>
+                <p class="value">{{provider.data}}</p>
               </div>
             </div>
           </div>
-
-          <div class="box">
-            <div class="logo">
-              <img src="./assets/img/engie-logo.png" alt="logo provider de servicii">
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-            <div class="container-info">
-              <p class="title">Engie</p>
-              <div class="info">
-                <p class="key">Serviciu</p>
-                <p class="value">Curent</p>
-              </div>
-              <div class="info">
-                <p class="key">Pret</p>
-                <p class="value">15 lei/Kw</p>
-              </div>
-              <div class="info">
-                <p class="key">Data</p>
-                <p class="value">25/10/20</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="logo">
-              <img src="./assets/img/engie-logo.png" alt="logo provider de servicii">
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-            <div class="container-info">
-              <p class="title">Engie</p>
-              <div class="info">
-                <p class="key">Serviciu</p>
-                <p class="value">Gaz</p>
-              </div>
-              <div class="info">
-                <p class="key">Pret</p>
-                <p class="value">12 lei/m³</p>
-              </div>
-              <div class="info">
-                <p class="key">Data</p>
-                <p class="value">06/07/20</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="logo">
-              <img src="./assets/img/acea-logo.png" alt="logo provider de servicii">
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-            <div class="container-info">
-              <p class="title">Acea</p>
-              <div class="info">
-                <p class="key">Serviciu</p>
-                <p class="value">Apa</p>
-              </div>
-              <div class="info">
-                <p class="key">Pret</p>
-                <p class="value">13 lei/m³</p>
-              </div>
-              <div class="info">
-                <p class="key">Data</p>
-                <p class="value">12/08/20</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="logo">
-              <img src="./assets/img/acea-logo.png" alt="logo provider de servicii">
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-            <div class="container-info">
-              <p class="title">Acea</p>
-              <div class="info">
-                <p class="key">Serviciu</p>
-                <p class="value">Apa</p>
-              </div>
-              <div class="info">
-                <p class="key">Pret</p>
-                <p class="value">13 lei/m³</p>
-              </div>
-              <div class="info">
-                <p class="key">Data</p>
-                <p class="value">12/08/20</p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
       <div class="right"></div>
     </div>
+    <div class="container-edit" *ngIf="modalState"></div>
+    <form class="edit" *ngIf="modalState" [formGroup]="formPrice" (ngSubmit)="onSubmit()">
+      <i class="fas fa-times" (click)="onStateChangeModal()"></i>
+      <p class="title">Actualizeaza pretul</p>
+      <div class="container-input">
+        <label for="pret">Pret</label>
+        <input type="number" id="pret" placeholder="Pret.." formControlName="price">
+      </div>
+      <button type="submit" value="Submit" class="btn-save">Salveaza</button>
+    </form>
   </div>
 </main>

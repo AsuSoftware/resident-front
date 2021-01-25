@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: [null, Validators.required]
   });
 
-  private errorMessage: String = null;
+  private errorMessage = null;
 
   public constructor(private fb: FormBuilder,
                      private router: Router,
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       }, (err) => this.errorMessage = err);
   }
 
-  public get messageError(): String {
+  public get messageError(): string {
     return this.errorMessage;
   }
 
