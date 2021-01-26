@@ -17,29 +17,29 @@
         <div class="left-top">
           <div class="category">
             <div class="box">
-              <p class="category-name active" (click)="filterData('All')">All</p>
+              <p [ngClass]="(actualCategory=='All')?'category-name active':'category-name'" (click)="filterData('All')">All</p>
               <p class="number">{{data.length}}</p>
             </div>
             <div class="box">
-              <p class="category-name" (click)="filterData('Gaz')">Gaz</p>
-              <p class="number">{{filterData('Gaz').length}}</p>
+              <p [ngClass]="(actualCategory=='Gaz')?'category-name active':'category-name'" (click)="filterData('Gaz')">Gaz</p>
+              <p class="number">{{filterCategory('Gaz')}}</p>
             </div>
             <div class="box">
-              <p class="category-name" (click)="filterData('Curent')">Curent</p>
-              <p class="number">{{filterData('Curent').length}}</p>
+              <p [ngClass]="(actualCategory=='Curent')?'category-name active':'category-name'" (click)="filterData('Curent')">Curent</p>
+              <p class="number">{{filterCategory('Curent')}}</p>
             </div>
             <div class="box">
-              <p class="category-name" (click)="filterData('Apa')">Apa</p>
-              <p class="number">{{filterData('Apa').length}}</p>
+              <p [ngClass]="(actualCategory=='Apa')?'category-name active':'category-name'" (click)="filterData('Apa')">Apa</p>
+              <p class="number">{{filterCategory('Apa')}}</p>
             </div>
           </div>
           <div class="search">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cauta..">
+            <input type="text" placeholder="Cauta.." (keyup)="searchByProviderName($event)">
           </div>
         </div>
         <div class="left-bottom">
-          <div class="box" *ngFor="let provider of filterData('All')">
+          <div class="box" *ngFor="let provider of newData">
             <div class="logo">
               <img [src]="provider.image" alt="logo provider de servicii">
             </div>

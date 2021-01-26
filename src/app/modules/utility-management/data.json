@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "image": "./assets/img/acea-logo.png",
+    "title": "Acea",
+    "serviciu": "Apa",
+    "pret": "13",
+    "data": "12/08/20"
+  },
+  {
+    "id": "2",
+    "image": "./assets/img/engie-logo.png",
+    "title": "Engie",
+    "serviciu": "Curent",
+    "pret": "15",
+    "data": "25/10/20"
+  },
+  {
+    "id": "3",
+    "image": "./assets/img/engie-logo.png",
+    "title": "Engie",
+    "serviciu": "Gaz",
+    "pret": "12",
+    "data": "06/07/20"
+  }
+]
